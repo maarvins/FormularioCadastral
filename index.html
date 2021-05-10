@@ -1,0 +1,119 @@
+<html lang="es" dir="ltr">
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/index.js" charset="utf-8"></script>
+
+    <script>
+      $(document).ready(function() {
+        $("#load").hide();
+      });
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container a-container" id="a-container">
+            <form class="form" id="a-form" onsubmit="return enviar(event)">
+                <h2 class="form_title title">Criar Formulario</h2>
+                <label for="name">Nome</label>
+                <div>
+                  <p name="name"></p>
+                  <input class="form__input" name="name" type="text" placeholder="Nome" required>
+                </div>
+                 <label for="contact">Contato</label>
+                <div>
+                  <p name="email"></p>
+                <input class="form__input" name="email" type="text" placeholder="ex: exemple@email.com" required>
+                </div>
+                <div>
+                  <p name="phone"></p>
+                <input class="form__input" name="phone" type="text" placeholder="Telefone" onkeydown=" fMasc(this,mTel)" required>
+                </div>
+                 <label for="address">Endereço</label>
+                 <div>
+                  <p name="addressZip"></p>
+                <input class="form__input" name="addressZip" type="text" placeholder="Cep" onkeydown=" fMasc(this,mCEP)" required>
+                </div>
+                <div>
+                  <p name="addressStreet"></p>
+                <input class="form__input" name="addressStreet" type="text" placeholder="Logradouro" required>
+                </div>
+                <div>
+                  <p name="addressNumber"></p>
+                <input class="form__input" name="addressNumber" type="text" placeholder="Número" required>
+                </div>
+                <div>
+                  <p name="addressComplement"></p>
+                <input class="form__input" name="addressComplement" type="text" placeholder="Complemento" required>
+                </div>
+                <div >
+                 <p name="addressDistrict"></p>
+                <input class="form__input" name="addressDistrict" type="text" placeholder="Bairro" required>
+                </div>
+                <div>
+                  <p name="addressCity"></p>
+                <input class="form__input" name="addressCity" type="text" placeholder="Cidade" required>
+                </div>
+                <div>
+                  <p name="addressState"></p>
+                <input class="form__input" name="addressState" type="text" placeholder="Estado" required>
+                </div>
+
+
+                <button class="form__button button submit">CADASTRAR →</button>
+            </form>
+            <div id="sucess" hidden>Muito bom! Você receberá seus adesivos em alguns dias</div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <br>
+    <br>
+    <br>
+        <div class="container-bottom">
+          <p class="copyright">© Copyright 2021 Marcus.Sena</p>
+        </div>
+</body>
+
+
+<script type="text/javascript">
+  function fMasc(objeto,mascara) {
+  				obj=objeto
+  				masc=mascara
+  				setTimeout("fMascEx()",1)
+  			}
+
+    			function fMascEx() {
+    				obj.value=masc(obj.value)
+    			}
+  function mTel(tel) {
+				tel=tel.replace(/\D/g,"")
+				tel=tel.replace(/^(\d)/,"($1")
+				tel=tel.replace(/(.{3})(\d)/,"$1)$2")
+				if(tel.length == 9) {
+					tel=tel.replace(/(.{1})$/,"-$1")
+				} else if (tel.length == 10) {
+					tel=tel.replace(/(.{2})$/,"-$1")
+				} else if (tel.length == 11) {
+					tel=tel.replace(/(.{3})$/,"-$1")
+				} else if (tel.length == 12) {
+					tel=tel.replace(/(.{4})$/,"-$1")
+				} else if (tel.length > 12) {
+					tel=tel.replace(/(.{4})$/,"-$1")
+				}
+
+				return tel;
+      }
+      function mCEP(cep){
+      cep=cep.replace(/\D/g,"")
+      cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+      cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+      return cep
+    }
+</script>
+</html>
