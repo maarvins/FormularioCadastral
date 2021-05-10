@@ -12,3 +12,9 @@
 ## TEMPO DE REALIZAÇÃO
 - início as 21:50
 - término as 02:00
+
+## POS SCRIPT
+LINHAS DESEJAVEIS
+- Não adequei o tempo para implantar a responsividade no web site (inclusão de mobiles, tablets, entre outros com o 'SIZE' diferente de uma tela desktop);
+- Faltou a reposta do botão CADASTRAR, no momento que o mouse passa em cima do mesmo (evento 'mouseover');
+
